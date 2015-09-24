@@ -19,14 +19,14 @@ archer:
   name: Archer
   email: archer@example.com
   password_digest: <%= User.digest('password') %>
-  activated: true
+  activated: false
   activated_at: <%= Time.zone.now %>
   
 rider:
   name: Rider
   email: rider@example.com
   password_digest: <%= User.digest('password') %>
-  activated: true
+  activated: false
   activated_at: <%= Time.zone.now %>
   
 <% 30.times do |x| %>

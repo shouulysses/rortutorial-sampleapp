@@ -3,8 +3,9 @@ require 'test_helper'
 class UsersControllerTest < ActionController::TestCase
   
   def setup
-    @user = users(:michael)
+    @user = users(:michael) #admin
     @user2 = users(:saber)
+    @user3 = users(:archer) #not activated
   end
   
   test "should get new" do
@@ -65,6 +66,14 @@ class UsersControllerTest < ActionController::TestCase
                                      password_confirmation: 'password',
                                      admin: true}
     assert_not @user2.reload.admin?
+  end
+  
+  test "getting into non-activated profile will get back to root" do
+    log_in_as(@user)
+    get :show, id: @user2
+    assert_template "users/show"
+    get :show, id: @user3
+    assert_redirected_to root_url
   end
 
 end

@@ -10,7 +10,9 @@ class UsermailerPreview < ActionMailer::Preview
 
   # Preview this email at http://localhost:3000/rails/mailers/usermailer/password_reset
   def password_reset
-    Usermailer.password_reset
+    user = User.first
+    user.reset_token = User.new_token
+    Usermailer.password_reset(user)
   end
 
 end

@@ -3,7 +3,7 @@
 
 <div class = "row">
   <div class = "col-md-6 col-md-offset-3">
-    <%= form_for(:password_resets, url: password_resets_path) do |f| %>
+    <%= form_for(:password_reset, url: password_resets_path) do |f| %>
     
       <%= f.label :Email %>
       <%= f.text_field :email, class:'form-control' %>

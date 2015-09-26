@@ -4,11 +4,11 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
   include ApplicationHelper
 
   def setup
-    @user = user(:michael)
+    @user = users(:michael)
   end
 
   test "profile display" do
-    get uesr_path(@user)
+    get user_path(@user)
     assert_template 'users/show'
     assert_select 'title', full_title(@user.name)
     assert_select 'h1', text: @user.name
@@ -23,4 +23,3 @@ class UsersProfileTest < ActionDispatch::IntegrationTest
 end
 
 
-end

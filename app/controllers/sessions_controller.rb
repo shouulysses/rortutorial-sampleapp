@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_action :kick, only:[:new, :create]
+  #before_action :kick, only:[:new, :create]
   def new
   end
   
